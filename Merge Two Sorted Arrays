@@ -1,0 +1,29 @@
+class Solution {
+	int[] mergeSortedArrays(int[] A, int[] B) {
+	    // add your logic here
+		int lena = A.length;
+		int lenb = B.length;
+		
+		int[] arr = new int[lena+lenb];
+		int i=0, j=0,k=0;
+		while(i<lena && j<lenb)
+		{
+			if(A[i]<=B[j]){
+				arr[k]=A[i];
+				i++;
+			}
+			else{
+				arr[k]=B[j];
+				j++;
+			}
+			k++;
+		}
+		while(i<lena){
+			arr[k++] = A[i++];
+		}
+		while(j<lenb){
+			arr[k++]= B[j++];
+		}
+		return arr;
+	}
+}
